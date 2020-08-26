@@ -65,7 +65,7 @@
         android:layout_margin="@dimen/normal_margin_size"
         android:src="@drawable/ic_play_circle"
         android:background="@android:color/transparent"
-        android:tint="@color/colorAccent"
+        android:tint="@android:color/holo_green_light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
