@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">MyPlaylist</string>
+    <string name="back_arrow_icon">back arrow icon</string>
+    <string name="more_vert_icon">more vert icon</string>
+    <string name="album_image">album_image</string>
+    <string name="search_icon">search icon</string>
+    <string name="str_coloring_book">Coloring Book</string>
+    <string name="str_chance_the_rapper">Chance the Rapper</string>
+    <string name="str_chance_the_rapper_2016">Chance the Rapper · 2016</string>
+    <string name="add_image_icon">add image icon</string>
+    <string name="download_icon">download icon</string>
+    <string name="str_tracks">tracks · </string>
+    <string name="pause_icon">pause icon</string>
+    <string name="str_music_title">No Problem (feat. Lil Wayne and 2 Chainz)</string>
+    <string name="down_arrow_icon">down arrow icon</string>
+    <string name="repeat_icon">repeat icon</string>
+    <string name="playlist_icon">playlist icon</string>
+    <string name="str_next_track">Next Track</string>
+    <string name="shuffle_icon">shuffle icon</string>
+    <string name="str_blessings">Blessings</string>
+    <string name="str_chance_the_rapper_coloring_book">Chance the Rapper - Coloring Book</string>
+    <string name="str_03_44">03:44</string>
+    <string name="str_01_21">01:21</string>
+    <string name="skip_previous_icon">skip previous icon</string>
+    <string name="skip_next_icon">skip next icon</string>
+    <string name="hint_search">제목을 입력하세요.</string>
+    <string name="str_save">save</string>
+
+    <string-array name="tracks">
+        <item>All We Got (feat. Kanye West &amp; Chicago Children\'s Choir)|03:23</item>
+        <item>No Problem (feat. Lil Wayne and 2 Chainz)|05:04</item>
+        <item>Summer Friends (feat. Jeremih and Francis and the Lights)|04:50</item>
+        <item>D.R.A.M. Sings Special|01:41</item>
+        <item>Blessings|03:41</item>
+        <item>Same Drugs|04:17</item>
+        <item>Mixtape (Feat. Young Thug &amp; Lil Yachty)|04:52</item>
+        <item>Angles (Feat. Saba)|03:26</item>
+        <item>Juke Jam (Feat. Justin Bieber &amp; Towkio)|03:39</item>
+        <item>All Night (Feat. Knox Fortune)|02:21</item>
+        <item>How Great (Feat. Jay Electronica &amp; My cousin Nicole)|05:37</item>
+        <item>Smoke Break (Feat. Future)|03:46</item>
+        <item>Finish Line / Drown (Feat. T-Pain, Kirk Franklin, Eryn Allen Kane &amp; Noname)|06:47</item>
+        <item>Blessings (Feat. Ty Dolla ＄ign, Raury, BJ The Chicago Kid, Anderson .Paak)|03:50</item>
+    </string-array>
 </resources>
