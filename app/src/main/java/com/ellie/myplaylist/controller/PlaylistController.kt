@@ -6,22 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bluelinelabs.conductor.Controller
-import com.ellie.myplaylist.R
 import com.ellie.myplaylist.controller.tracklist.TrackListAdapter
-import kotlinx.android.synthetic.main.controller_playlist.view.*
+import com.ellie.myplaylist.databinding.ControllerPlaylistBinding
 
 class PlaylistController : Controller() {
-    private lateinit var rootView: View
+    private lateinit var viewBinding: ControllerPlaylistBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
-        rootView = inflater.inflate(R.layout.controller_playlist, container, false)
+        viewBinding = ControllerPlaylistBinding.inflate(inflater, container, false)
         initTrackList()
 
-        return rootView
+        return viewBinding.root
     }
 
     private fun initTrackList() {
-        with(rootView.trackList) {
+        with(viewBinding.trackList) {
             layoutManager = LinearLayoutManager(context)
             adapter = TrackListAdapter(context)
         }
