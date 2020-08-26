@@ -1,37 +1,43 @@
 <resources>
     <string name="app_name">MyPlaylist</string>
-    <string name="back_arrow_icon">back arrow icon</string>
-    <string name="more_vert_icon">more vert icon</string>
-    <string name="album_image">album_image</string>
-    <string name="search_icon">search icon</string>
+
+    <string name="desc_back_arrow_icon">back arrow icon</string>
+    <string name="desc_more_vert_icon">more vert icon</string>
+    <string name="desc_album_image">album_image</string>
+    <string name="desc_search_icon">search icon</string>
+    <string name="desc_add_image_icon">add image icon</string>
+    <string name="desc_download_icon">download icon</string>
+    <string name="desc_pause_icon">pause icon</string>
+    <string name="desc_down_arrow_icon">down arrow icon</string>
+    <string name="desc_repeat_icon">repeat icon</string>
+    <string name="desc_playlist_icon">playlist icon</string>
+    <string name="desc_shuffle_icon">shuffle icon</string>
+    <string name="desc_skip_previous_icon">skip previous icon</string>
+    <string name="desc_skip_next_icon">skip next icon</string>
+
     <string name="str_coloring_book">Coloring Book</string>
     <string name="str_chance_the_rapper">Chance the Rapper</string>
     <string name="str_chance_the_rapper_2016">Chance the Rapper · 2016</string>
-    <string name="add_image_icon">add image icon</string>
-    <string name="download_icon">download icon</string>
-    <string name="str_tracks">tracks · </string>
-    <string name="pause_icon">pause icon</string>
+    <string name="str_tracks">tracks</string>
+    <string name="str_dot">·</string>
+    <string name="str_14">14</string>
+    <string name="str_00_00">00:00</string>
     <string name="str_music_title">No Problem (feat. Lil Wayne and 2 Chainz)</string>
-    <string name="down_arrow_icon">down arrow icon</string>
-    <string name="repeat_icon">repeat icon</string>
-    <string name="playlist_icon">playlist icon</string>
     <string name="str_next_track">Next Track</string>
-    <string name="shuffle_icon">shuffle icon</string>
     <string name="str_blessings">Blessings</string>
     <string name="str_chance_the_rapper_coloring_book">Chance the Rapper - Coloring Book</string>
     <string name="str_03_44">03:44</string>
     <string name="str_01_21">01:21</string>
-    <string name="skip_previous_icon">skip previous icon</string>
-    <string name="skip_next_icon">skip next icon</string>
+    <string name="str_lyrics">가사</string>
+    <string name="str_introduction">곡 소개</string>
+    <string name="str_save">save</string>
+    <string name="str_delete">delete</string>
+
     <string name="hint_title">곡 제목</string>
     <string name="hint_artist">아티스트</string>
     <string name="hint_mm_ss">mm:ss</string>
     <string name="hint_lyrics">가사를 입력해 주세요.</string>
     <string name="hint_introduction">자유롭게 곡에 대한 소개를 남겨 주세요.</string>
-    <string name="text_lyrics">가사</string>
-    <string name="text_introduction">곡 소개</string>
-    <string name="str_save">save</string>
-    <string name="str_delete">delete</string>
 
     <string-array name="tracks">
         <item>All We Got (feat. Kanye West &amp; Chicago Children\'s Choir)|03:23</item>

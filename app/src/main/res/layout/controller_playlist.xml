@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/imageAlbum"
-            android:contentDescription="@string/more_vert_icon" />
+            android:contentDescription="@string/desc_more_vert_icon" />
 
         <ImageView
             android:id="@+id/imageAlbum"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/btnEdit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
-            android:contentDescription="@string/album_image" />
+            android:contentDescription="@string/desc_album_image" />
 
         <TextView
             android:id="@+id/albumName"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/add_image_icon"
+            android:contentDescription="@string/desc_add_image_icon"
             android:src="@drawable/ic_add_to_photos"
             app:layout_constraintBottom_toBottomOf="@id/imageAlbum"
             app:layout_constraintStart_toStartOf="@id/albumName"
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/normal_margin_size"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/download_icon"
+            android:contentDescription="@string/desc_download_icon"
             android:src="@drawable/ic_download"
             app:layout_constraintStart_toEndOf="@id/btnPlus"
             app:layout_constraintTop_toTopOf="@id/btnPlus"
@@ -87,21 +87,48 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textTracks"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/trackStatistics"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_margin_size"
-        android:text="@string/str_tracks"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/albumOverview"
-        app:layout_constraintBottom_toTopOf="@+id/trackList"/>
+        app:layout_constraintBottom_toTopOf="@+id/trackList" >
+
+        <TextView
+            android:id="@+id/textTotalTrackNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="@string/str_tracks"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="@string/str_dot"/>
+
+        <TextView
+            android:id="@+id/textTotalPlayTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="@string/str_00_00"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/trackList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/textTracks"
+        app:layout_constraintTop_toBottomOf="@id/trackStatistics"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
