@@ -23,8 +23,15 @@
     <string name="str_01_21">01:21</string>
     <string name="skip_previous_icon">skip previous icon</string>
     <string name="skip_next_icon">skip next icon</string>
-    <string name="hint_search">제목을 입력하세요.</string>
+    <string name="hint_title">곡 제목</string>
+    <string name="hint_artist">아티스트</string>
+    <string name="hint_mm_ss">mm:ss</string>
+    <string name="hint_lyrics">가사를 입력해 주세요.</string>
+    <string name="hint_introduction">자유롭게 곡에 대한 소개를 남겨 주세요.</string>
+    <string name="text_lyrics">가사</string>
+    <string name="text_introduction">곡 소개</string>
     <string name="str_save">save</string>
+    <string name="str_delete">delete</string>
 
     <string-array name="tracks">
         <item>All We Got (feat. Kanye West &amp; Chicago Children\'s Choir)|03:23</item>
