@@ -49,10 +49,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.0'
 
     // conductor
-    implementation 'com.bluelinelabs:conductor:3.0.0-rc5'
-    implementation 'com.bluelinelabs:conductor-androidx-transition:3.0.0-rc5'
+    implementation "com.bluelinelabs:conductor:$conductor_version"
+    implementation "com.bluelinelabs:conductor-androidx-transition:$conductor_version"
 
     // moshi
-    implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
-    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.9.3'
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
 }
