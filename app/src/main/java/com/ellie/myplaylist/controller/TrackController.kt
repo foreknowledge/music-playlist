@@ -15,6 +15,16 @@ class TrackController : Controller() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_track, container, false)
 
+        setViewsClickListener()
+
         return dataBinding.root
+    }
+
+    private fun setViewsClickListener() {
+        with(dataBinding) {
+            btnBack.setOnClickListener {
+                router.popCurrentController()
+            }
+        }
     }
 }
