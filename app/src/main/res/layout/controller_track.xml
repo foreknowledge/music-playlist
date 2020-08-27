@@ -34,19 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/str_delete"
                 android:textSize="16sp"
-                android:textColor="@color/colorAccent"
-                android:background="@android:color/transparent"
-                app:layout_constraintEnd_toStartOf="@id/btnSave"
-                app:layout_constraintTop_toTopOf="@id/btnBack"
-                app:layout_constraintBottom_toBottomOf="@id/btnBack"/>
-
-            <Button
-                android:id="@+id/btnSave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/str_save"
-                android:textSize="16sp"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@color/colorPrimary"
                 android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/btnBack"
@@ -80,8 +68,6 @@
                 android:id="@+id/editTime"
                 android:layout_margin="20dp"
                 android:hint="@string/hint_mm_ss"
-                android:clickable="true"
-                android:focusable="true"
                 android:text="@{track.playTime}"
                 android:importantForAutofill="no"
                 app:layout_constraintEnd_toEndOf="@id/editTitle"
@@ -143,6 +129,18 @@
                 app:layout_constraintEnd_toEndOf="@id/editTitle"
                 app:layout_constraintTop_toBottomOf="@id/textIntroduction"
                 style="@style/defaultEditTextStyle"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/str_save"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@id/editTitle"
+                app:layout_constraintEnd_toEndOf="@id/editTitle"
+                app:layout_constraintTop_toBottomOf="@id/editIntroduction"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
