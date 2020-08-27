@@ -1,21 +1,17 @@
 package com.ellie.myplaylist.controller.tracklist
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ellie.myplaylist.R
 
-class TrackListAdapter(context: Context) : RecyclerView.Adapter<TrackListViewHolder>() {
+class TrackListAdapter : RecyclerView.Adapter<TrackListViewHolder>() {
     private val trackList = mutableListOf<Track>()
 
-    init {
-        val tracks = context.resources.getStringArray(R.array.tracks)
-        for (track in tracks) {
-            val item = track.split("|")
-            trackList.add(Track(item[0], "Chance the Rapper", item[1]))
-        }
+    fun setPlaylist(tracks: List<Track>) {
+        trackList.addAll(tracks)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = TrackListViewHolder(

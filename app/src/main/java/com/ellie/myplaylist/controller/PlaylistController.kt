@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bluelinelabs.conductor.Controller
+import com.ellie.myplaylist.GlobalApplication
 import com.ellie.myplaylist.controller.tracklist.TrackListAdapter
 import com.ellie.myplaylist.databinding.ControllerPlaylistBinding
 
@@ -14,15 +15,17 @@ class PlaylistController : Controller() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         viewBinding = ControllerPlaylistBinding.inflate(inflater, container, false)
-        initTrackList()
+        initPlayList()
 
         return viewBinding.root
     }
 
-    private fun initTrackList() {
+    private fun initPlayList() {
         with(viewBinding.trackList) {
             layoutManager = LinearLayoutManager(context)
-            adapter = TrackListAdapter(context)
+            adapter = TrackListAdapter().apply {
+                setPlaylist(GlobalApplication.playlistProvider.playlist)
+            }
         }
     }
 }
