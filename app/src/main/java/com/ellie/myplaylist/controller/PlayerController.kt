@@ -15,7 +15,16 @@ class PlayerController : Controller() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_player, container, false)
 
+        setViewsClickListener()
+
         return dataBinding.root
     }
 
+    private fun setViewsClickListener() {
+        with(dataBinding) {
+            btnDown.setOnClickListener {
+                router.popCurrentController()
+            }
+        }
+    }
 }
