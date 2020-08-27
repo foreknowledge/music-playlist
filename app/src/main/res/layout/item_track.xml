@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+        <variable name="number" type="Integer" />
         <variable name="track"
             type="com.ellie.myplaylist.controller.tracklist.Track" />
     </data>
@@ -18,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin_size"
-            android:text="@{String.valueOf(track.number)}"
+            android:text="@{String.valueOf(number)}"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/guideLine"

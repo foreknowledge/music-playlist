@@ -1,7 +1,6 @@
 package com.ellie.myplaylist.controller.tracklist
 
 data class Track(
-    val number: Int,
     val title: String,
     val artist: String,
     val playTime: String = "00:00",

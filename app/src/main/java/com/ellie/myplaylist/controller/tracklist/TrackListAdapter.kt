@@ -12,9 +12,9 @@ class TrackListAdapter(context: Context) : RecyclerView.Adapter<TrackListViewHol
 
     init {
         val tracks = context.resources.getStringArray(R.array.tracks)
-        for ((i, track) in tracks.withIndex()) {
+        for (track in tracks) {
             val item = track.split("|")
-            trackList.add(Track(i + 1, item[0], "Chance the Rapper", item[1]))
+            trackList.add(Track(item[0], "Chance the Rapper", item[1]))
         }
     }
 
@@ -22,7 +22,7 @@ class TrackListAdapter(context: Context) : RecyclerView.Adapter<TrackListViewHol
         DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_track, parent, false)
     )
 
-    override fun onBindViewHolder(holder: TrackListViewHolder, position: Int) = holder.bind(trackList[position])
+    override fun onBindViewHolder(holder: TrackListViewHolder, position: Int) = holder.bind(position, trackList[position])
 
     override fun getItemCount() = trackList.size
 }
