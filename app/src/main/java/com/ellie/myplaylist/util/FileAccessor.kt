@@ -1,11 +1,9 @@
 package com.ellie.myplaylist.util
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.WorkerThread
-import java.io.BufferedReader
-import java.io.IOException
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
+import java.io.*
 
 class FileAccessor(private val context: Context, private val fileName: String) {
     @WorkerThread
@@ -15,9 +13,12 @@ class FileAccessor(private val context: Context, private val fileName: String) {
                 val reader = BufferedReader(InputStreamReader(inputStream))
                 return reader.readLines().joinToString("")
             }
-        } catch (e: IOException) {
+        } catch (e: FileNotFoundException) {
             writeData(sampleData)
             return sampleData
+        } catch (e: IOException) {
+            Log.e(TAG, "IOException while reading data. ${e.message}")
+            return ""
         }
     }
 
@@ -30,6 +31,7 @@ class FileAccessor(private val context: Context, private val fileName: String) {
     }
 
     companion object {
+        private const val TAG = "FileAccessor"
         private val sampleData = """
             [
               {
