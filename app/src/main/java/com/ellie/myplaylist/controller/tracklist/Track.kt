@@ -12,7 +12,7 @@ data class Track(
     val artist: String,
 
     @field:Json(name = "play_time")
-    val playTime: String = "00:00",
+    val playTime: String,
 
     @field:Json(name = "lyrics")
     val lyrics: String? = null,
