@@ -1,4 +1,4 @@
-package com.ellie.myplaylist.app
+package com.ellie.myplaylist.extractor
 
 import android.app.Application
 import android.content.Context

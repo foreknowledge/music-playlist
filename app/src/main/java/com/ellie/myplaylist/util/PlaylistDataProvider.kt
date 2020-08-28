@@ -1,6 +1,6 @@
 package com.ellie.myplaylist.util
 
-import com.ellie.myplaylist.app.GlobalApplication
+import com.ellie.myplaylist.MainActivity
 import com.ellie.myplaylist.controller.tracklist.Track
 
 /**
@@ -12,7 +12,7 @@ object PlaylistDataProvider {
     // Instance data.
     //
 
-    private val playlistDataManager = GlobalApplication.playlistDataManager
+    private val playlistDataManager = MainActivity.playlistDataManager
 
     //----------------------------------------------------------
     // Public interface.
