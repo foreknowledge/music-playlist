@@ -32,19 +32,22 @@ class TrackEditorController : Controller {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_track_editor, container, false)
 
+        bindData()
         setViewsClickListener()
 
         return dataBinding.root
+    }
+
+    private fun bindData() {
+        currentTrack?.let {
+            dataBinding.track = it
+        }
     }
 
     private fun setViewsClickListener() {
         with(dataBinding) {
             btnBack.setOnClickListener {
                 router.popCurrentController()
-            }
-
-            currentTrack?.let {
-                track = it
             }
         }
     }
