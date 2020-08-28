@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+        <variable name="track"
+            type="com.ellie.myplaylist.controller.tracklist.Track" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <variable name="nextTrack"
+            type="com.ellie.myplaylist.controller.tracklist.Track" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:background="@color/colorAlbumBg"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:background="@color/colorAlbumBg">
 
         <ImageView
             android:id="@+id/albumImage"
@@ -34,13 +41,13 @@
             android:id="@+id/btnRepeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/desc_repeat_icon"
             android:src="@drawable/ic_repeat"
             app:layout_constraintTop_toTopOf="@id/musicTitle"
-            app:layout_constraintBottom_toBottomOf="@id/albumTitle"
+            app:layout_constraintBottom_toBottomOf="@id/artistName"
             app:layout_constraintEnd_toStartOf="@id/musicTitle"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -48,13 +55,13 @@
             android:id="@+id/btnShuffle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/desc_shuffle_icon"
             android:src="@drawable/ic_shuffle"
             app:layout_constraintTop_toTopOf="@id/musicTitle"
-            app:layout_constraintBottom_toBottomOf="@id/albumTitle"
+            app:layout_constraintBottom_toBottomOf="@id/artistName"
             app:layout_constraintStart_toEndOf="@id/musicTitle"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -64,24 +71,28 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:text="@string/str_blessings"
-            android:textSize="25sp"
+            android:text="@{track.title}"
+            android:textSize="20sp"
             android:textColor="@android:color/white"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@id/albumImage"
             app:layout_constraintStart_toEndOf="@id/btnRepeat"
             app:layout_constraintEnd_toStartOf="@id/btnShuffle"
-            app:layout_constraintBottom_toTopOf="@id/albumTitle"
+            app:layout_constraintBottom_toTopOf="@id/artistName"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintVertical_bias="0.3"/>
 
         <TextView
-            android:id="@+id/albumTitle"
+            android:id="@+id/artistName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/str_chance_the_rapper_coloring_book"
+            android:text="@{track.artist}"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintBottom_toTopOf="@+id/progressBar"
             app:layout_constraintEnd_toEndOf="@id/musicTitle"
             app:layout_constraintStart_toStartOf="@id/musicTitle"
@@ -97,7 +108,7 @@
             app:layout_constraintBottom_toTopOf="@id/progressBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/albumTitle"/>
+            app:layout_constraintTop_toBottomOf="@id/artistName"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -122,24 +133,14 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
-            android:id="@+id/currentSeconds"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textColor="@android:color/darker_gray"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/progressBar"
-            tools:text="03:44"/>
-
-        <TextView
             android:id="@+id/totalSeconds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textColor="@android:color/darker_gray"
+            android:text="@{track.playTime}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/progressBar"
-            tools:text="05:05"/>
+            app:layout_constraintBottom_toTopOf="@id/progressBar"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -164,28 +165,32 @@
             android:contentDescription="@string/desc_album_image" />
 
         <TextView
-            android:id="@+id/nextTrack"
-            android:layout_width="wrap_content"
+            android:id="@+id/textNextTrack"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/normal_margin_size"
-            android:textSize="15sp"
+            android:layout_marginEnd="@dimen/normal_margin_size"
             android:textColor="@android:color/white"
-            tools:text="Artist - Music title"
-            app:layout_constraintVertical_chainStyle="packed"
+            android:textSize="15sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:text="@{nextTrack}"
+            app:layout_constraintBottom_toTopOf="@id/strNextTrack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageAlbumSmall"
             app:layout_constraintTop_toTopOf="@id/imageAlbumSmall"
-            app:layout_constraintBottom_toTopOf="@id/textNextTrack"
-            app:layout_constraintStart_toEndOf="@id/imageAlbumSmall"/>
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/textNextTrack"
+            android:id="@+id/strNextTrack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/str_next_track"
             android:textColor="@android:color/darker_gray"
             android:textSize="13sp"
-            app:layout_constraintTop_toBottomOf="@id/nextTrack"
+            app:layout_constraintTop_toBottomOf="@id/textNextTrack"
             app:layout_constraintBottom_toBottomOf="@id/imageAlbumSmall"
-            app:layout_constraintStart_toStartOf="@id/nextTrack"/>
+            app:layout_constraintStart_toStartOf="@id/textNextTrack"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

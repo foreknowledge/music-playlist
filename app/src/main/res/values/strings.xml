@@ -32,6 +32,7 @@
     <string name="str_introduction">곡 소개</string>
     <string name="str_save">save</string>
     <string name="str_delete">delete</string>
+    <string name="str_no_next_track">다음 재생 곡이 없습니다.</string>
 
     <string name="hint_title">곡 제목</string>
     <string name="hint_artist">아티스트</string>

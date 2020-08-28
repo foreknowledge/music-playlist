@@ -31,7 +31,7 @@ class PlaylistController : Controller() {
                     router.pushController(RouterTransaction.with(TrackEditorController(position)))
                 }
                 setOnPlayButtonClickListener { position ->
-                    router.pushController(RouterTransaction.with(PlayerController()))
+                    router.pushController(RouterTransaction.with(PlayerController(position)))
                 }
             }
         }
