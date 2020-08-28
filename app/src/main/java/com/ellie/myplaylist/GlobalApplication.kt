@@ -8,6 +8,11 @@ import com.ellie.myplaylist.util.JsonConverter
 import com.squareup.moshi.Types
 
 class GlobalApplication : Application() {
+    companion object {
+        lateinit var appContext: Context
+        lateinit var playlistDataManager: PlaylistDataManager
+    }
+
     override fun onCreate() {
         super.onCreate()
 
@@ -51,10 +56,5 @@ class GlobalApplication : Application() {
             val jsonString = JsonConverter.listToJson(playlist, trackListType)
             fileAccessor.writeData(jsonString)
         }
-    }
-
-    companion object {
-        lateinit var appContext: Context
-        lateinit var playlistDataManager: PlaylistDataManager
     }
 }
