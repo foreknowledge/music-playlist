@@ -1,4 +1,4 @@
-package com.ellie.myplaylist.util
+package com.ellie.myplaylist.app
 
 import com.squareup.moshi.Moshi
 import java.lang.reflect.Type

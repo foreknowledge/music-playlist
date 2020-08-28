@@ -1,6 +1,6 @@
 package com.ellie.myplaylist.util
 
-import com.ellie.myplaylist.GlobalApplication
+import com.ellie.myplaylist.app.GlobalApplication
 import com.ellie.myplaylist.controller.tracklist.Track
 
 object PlaylistDataProvider {

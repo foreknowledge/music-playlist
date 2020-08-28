@@ -1,5 +1,6 @@
-package com.ellie.myplaylist.util
+package com.ellie.myplaylist.app
 
+import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.annotation.WorkerThread
@@ -25,7 +26,7 @@ class FileAccessor(private val context: Context, private val fileName: String) {
     @WorkerThread
     fun writeData(data: String) {
         // 해당 파일 있으면 열고, 없으면 생성한 뒤 data를 쓴다.
-        OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_PRIVATE)).use {
+        OutputStreamWriter(context.openFileOutput(fileName, Application.MODE_PRIVATE)).use {
             it.write(data)
         }
     }

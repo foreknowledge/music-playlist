@@ -26,18 +26,6 @@ class PlaylistController : Controller() {
         return viewBinding.root
     }
 
-    private fun initViews() {
-        with(viewBinding) {
-            textTotalTrackNum.text = trackListAdapter.itemCount.toString()
-            textTotalPlayTime.text = trackListAdapter.totalPlayTimeText
-        }
-
-        with(viewBinding.trackList) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = trackListAdapter
-        }
-    }
-
     private fun initTrackList() {
         trackListAdapter = TrackListAdapter().apply {
             setPlaylist(PlaylistDataProvider.playlist)
@@ -47,6 +35,18 @@ class PlaylistController : Controller() {
             setOnPlayButtonClickListener { position ->
                 router.pushController(RouterTransaction.with(PlayerController(position)))
             }
+        }
+    }
+
+    private fun initViews() {
+        with(viewBinding) {
+            textTotalTrackNum.text = trackListAdapter.itemCount.toString()
+            textTotalPlayTime.text = trackListAdapter.totalPlayTimeText
+        }
+
+        with(viewBinding.trackList) {
+            layoutManager = LinearLayoutManager(context)
+            adapter = trackListAdapter
         }
     }
 
