@@ -33,7 +33,7 @@ class PlaylistController : Controller() {
     }
 
     private fun startTrackController(position: Int) {
-        router.pushController(RouterTransaction.with(TrackController()))
+        router.pushController(RouterTransaction.with(TrackController(position)))
     }
 
     private fun startPlayerController(position: Int) {
