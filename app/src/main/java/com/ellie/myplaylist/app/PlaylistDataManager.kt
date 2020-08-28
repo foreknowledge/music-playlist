@@ -15,11 +15,8 @@ class PlaylistDataManager(context: Context) {
     fun initPlaylist() {
         val jsonString = fileAccessor.readData()
 
-        val initPlaylistData = JsonConverter.jsonToObject<List<Track>>(
-            jsonString,
-            trackListType
-        ) ?: emptyList()
-        playlist.addAll(initPlaylistData)
+        val initData = JsonConverter.jsonToObject<List<Track>>(jsonString, trackListType) ?: emptyList()
+        playlist.addAll(initData)
     }
 
     fun addTrack(track: Track) {
