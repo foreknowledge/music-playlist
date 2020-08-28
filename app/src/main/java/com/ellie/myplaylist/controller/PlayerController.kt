@@ -26,14 +26,10 @@ class PlayerController : Controller {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_player, container, false)
 
+        bindData()
         setViewsClickListener()
 
         return dataBinding.root
-    }
-
-    override fun onAttach(view: View) {
-        super.onAttach(view)
-        bindData()
     }
 
     private fun bindData() {
