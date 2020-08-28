@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.RouterTransaction
-import com.ellie.myplaylist.util.PlaylistDataProvider
+import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
+import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.ellie.myplaylist.controller.tracklist.TrackListAdapter
 import com.ellie.myplaylist.databinding.ControllerPlaylistBinding
+import com.ellie.myplaylist.util.PlaylistDataProvider
 
 /**
  * Playlist 화면 담당 Controller.
@@ -56,14 +58,18 @@ class PlaylistController : Controller() {
             setOnItemClickListener { position ->
                 // Track Edit Controller 시작
                 // 클릭한 아이템의 position 전달
-                router.pushController(RouterTransaction.with(TrackEditorController(position)))
+                router.pushController(RouterTransaction.with(TrackEditorController(position))
+                    .pushChangeHandler(HorizontalChangeHandler())
+                    .popChangeHandler(HorizontalChangeHandler()))
             }
 
             // 리스트의 Play 버튼 클릭 리스너 설정
             setOnPlayButtonClickListener { position ->
                 // Player Controller 시작
                 // 클릭한 아이템의 position 전달
-                router.pushController(RouterTransaction.with(PlayerController(position)))
+                router.pushController(RouterTransaction.with(PlayerController(position))
+                    .pushChangeHandler(VerticalChangeHandler())
+                    .popChangeHandler(VerticalChangeHandler()))
             }
         }
     }
@@ -92,7 +98,9 @@ class PlaylistController : Controller() {
         // Add 버튼 클릭 리스너 설정
         viewBinding.btnAdd.setOnClickListener {
             // Track Edit Controller 시작
-            router.pushController(RouterTransaction.with(TrackEditorController()))
+            router.pushController(RouterTransaction.with(TrackEditorController())
+                .pushChangeHandler(HorizontalChangeHandler())
+                .popChangeHandler(HorizontalChangeHandler()))
         }
     }
 }
