@@ -35,7 +35,7 @@ class FileAccessor(private val context: Context, private val fileName: String) {
         private val sampleData = """
             [
               {
-                "title": "All We Got (feat. Kanye West &amp; Chicago Children\\'s Choir)",
+                "title": "All We Got (feat. Kanye West & Chicago Children\\'s Choir)",
                 "artist": "Chance the Rapper",
                 "play_time": "03:23"
               },
