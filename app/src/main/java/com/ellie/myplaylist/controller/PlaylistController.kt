@@ -14,25 +14,38 @@ import com.ellie.myplaylist.databinding.ControllerPlaylistBinding
 class PlaylistController : Controller() {
     private lateinit var viewBinding: ControllerPlaylistBinding
 
+    private lateinit var trackListAdapter: TrackListAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         viewBinding = ControllerPlaylistBinding.inflate(inflater, container, false)
-        initPlayList()
+
+        initTrackList()
+        initViews()
         setAddButtonClickListener()
 
         return viewBinding.root
     }
 
-    private fun initPlayList() {
+    private fun initViews() {
+        with(viewBinding) {
+            textTotalTrackNum.text = trackListAdapter.itemCount.toString()
+            textTotalPlayTime.text = trackListAdapter.totalPlayTimeText
+        }
+
         with(viewBinding.trackList) {
             layoutManager = LinearLayoutManager(context)
-            adapter = TrackListAdapter().apply {
-                setPlaylist(GlobalApplication.playlistProvider.playlist)
-                setOnContainerClickListener { position ->
-                    router.pushController(RouterTransaction.with(TrackEditorController(position)))
-                }
-                setOnPlayButtonClickListener { position ->
-                    router.pushController(RouterTransaction.with(PlayerController(position)))
-                }
+            adapter = trackListAdapter
+        }
+    }
+
+    private fun initTrackList() {
+        trackListAdapter = TrackListAdapter().apply {
+            setPlaylist(GlobalApplication.playlistProvider.playlist)
+            setOnContainerClickListener { position ->
+                router.pushController(RouterTransaction.with(TrackEditorController(position)))
+            }
+            setOnPlayButtonClickListener { position ->
+                router.pushController(RouterTransaction.with(PlayerController(position)))
             }
         }
     }

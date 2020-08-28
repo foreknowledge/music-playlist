@@ -13,6 +13,9 @@ class TrackListAdapter : RecyclerView.Adapter<TrackListViewHolder>() {
     private var onContainerClickListener: OnItemClickListener? = null
     private var onPlayButtonClickListener: OnItemClickListener? = null
 
+    val totalPlayTimeText: String
+        get() = calcTotalPlayTime()
+
     fun setPlaylist(tracks: List<Track>) {
         trackList.addAll(tracks)
         notifyDataSetChanged()
@@ -48,4 +51,21 @@ class TrackListAdapter : RecyclerView.Adapter<TrackListViewHolder>() {
     }
 
     override fun getItemCount() = trackList.size
+
+    private fun calcTotalPlayTime(): String {
+        val totalTimeSec = trackList.map {
+            val time = it.playTime.split(":")
+            val minutes = time[0].toInt()
+            val seconds = time[1].toInt()
+            minutes * 60 + seconds
+        }.sum()
+
+        val minutes = totalTimeSec / 60
+        val seconds = totalTimeSec % 60
+
+        val textMinutes = if (minutes < 10) "0$minutes" else minutes.toString()
+        val textSecond = if (seconds < 10) "0$seconds" else seconds.toString()
+
+        return "$textMinutes:$textSecond"
+    }
 }
