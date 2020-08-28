@@ -9,7 +9,16 @@ import com.ellie.myplaylist.controller.PlaylistController
 import com.ellie.myplaylist.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    //----------------------------------------------------------
+    // Instance data.
+    //
+
     private lateinit var router: Router
+
+    //----------------------------------------------------------
+    // Public interface.
+    //
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         router = Conductor.attachRouter(this, binding.container, savedInstanceState)
         if (!router.hasRootController()) {
+            // PlaylistController 시작
             router.setRoot(RouterTransaction.with(PlaylistController()))
         }
     }

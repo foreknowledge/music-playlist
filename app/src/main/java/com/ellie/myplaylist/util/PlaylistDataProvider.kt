@@ -3,14 +3,30 @@ package com.ellie.myplaylist.util
 import com.ellie.myplaylist.app.GlobalApplication
 import com.ellie.myplaylist.controller.tracklist.Track
 
+/**
+ * playlist 데이터를 제공하는 Singleton Object.
+ */
 object PlaylistDataProvider {
+
+    //----------------------------------------------------------
+    // Instance data.
+    //
+
     private val playlistDataManager = GlobalApplication.playlistDataManager
+
+    //----------------------------------------------------------
+    // Public interface.
+    //
 
     val playlist = playlistDataManager.playlist
 
-    fun getTrack(position: Int): Track? {
-        return if (position >= 0 && position < playlist.size) {
-            playlist[position]
+    /**
+     * track list 중에서 position에 해당하는 track을 반환한다.
+     * 없는 index가 넘어오면 null 반환한다.
+     */
+    fun getTrack(index: Int): Track? {
+        return if (index >= 0 && index < playlist.size) {
+            playlist[index]
         } else {
             null
         }
