@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bluelinelabs.conductor.Controller
-import com.ellie.myplaylist.GlobalApplication
 import com.bluelinelabs.conductor.RouterTransaction
+import com.ellie.myplaylist.PlaylistDataProvider
 import com.ellie.myplaylist.controller.tracklist.TrackListAdapter
 import com.ellie.myplaylist.databinding.ControllerPlaylistBinding
 
@@ -40,7 +40,7 @@ class PlaylistController : Controller() {
 
     private fun initTrackList() {
         trackListAdapter = TrackListAdapter().apply {
-            setPlaylist(GlobalApplication.playlistProvider.playlist)
+            setPlaylist(PlaylistDataProvider.playlist)
             setOnContainerClickListener { position ->
                 router.pushController(RouterTransaction.with(TrackEditorController(position)))
             }

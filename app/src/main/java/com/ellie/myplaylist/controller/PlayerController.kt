@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.bluelinelabs.conductor.Controller
-import com.ellie.myplaylist.GlobalApplication
+import com.ellie.myplaylist.PlaylistDataProvider
 import com.ellie.myplaylist.R
 import com.ellie.myplaylist.databinding.ControllerPlayerBinding
 
@@ -33,7 +33,7 @@ class PlayerController : Controller {
     }
 
     private fun bindData() {
-        val playlist = GlobalApplication.playlistProvider.playlist
+        val playlist = PlaylistDataProvider.playlist
         dataBinding.track = playlist[position]
 
         if (position < playlist.size - 1) {

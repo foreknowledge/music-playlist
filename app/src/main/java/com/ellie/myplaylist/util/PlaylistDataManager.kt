@@ -4,7 +4,7 @@ import android.content.Context
 import com.ellie.myplaylist.controller.tracklist.Track
 import com.squareup.moshi.Types
 
-class PlaylistProvider(context: Context) {
+class PlaylistDataManager(context: Context) {
     private val fileName = "playlist.json"
     private val fileAccessor = FileAccessor(context, fileName)
 

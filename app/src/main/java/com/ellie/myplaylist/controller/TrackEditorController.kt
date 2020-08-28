@@ -10,6 +10,7 @@ import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import com.bluelinelabs.conductor.Controller
 import com.ellie.myplaylist.GlobalApplication
+import com.ellie.myplaylist.PlaylistDataProvider
 import com.ellie.myplaylist.R
 import com.ellie.myplaylist.controller.tracklist.Track
 import com.ellie.myplaylist.databinding.ControllerTrackEditorBinding
@@ -17,7 +18,6 @@ import com.ellie.myplaylist.databinding.ControllerTrackEditorBinding
 class TrackEditorController : Controller {
     private lateinit var dataBinding: ControllerTrackEditorBinding
 
-    private val playlistProvider = GlobalApplication.playlistProvider
     private var trackPosition: Int = -1
 
     constructor() : super()
@@ -33,7 +33,7 @@ class TrackEditorController : Controller {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_track_editor, container, false)
         // bind data
-        dataBinding.track = if (trackPosition >= 0) playlistProvider.playlist[trackPosition] else null
+        dataBinding.track = PlaylistDataProvider.getTrack(trackPosition)
 
         setViewsClickListener()
 
@@ -49,9 +49,9 @@ class TrackEditorController : Controller {
             btnSave.setOnClickListener {
                 if (checkValid()) {
                     if (trackPosition >= 0) {
-                        playlistProvider.updateTrack(trackPosition, makeCurrentTrack())
+                        PlaylistDataProvider.updateTrack(trackPosition, makeCurrentTrack())
                     } else {
-                        playlistProvider.addTrack(makeCurrentTrack())
+                        PlaylistDataProvider.addTrack(makeCurrentTrack())
                     }
 
                     it.showToast(R.string.msg_saved)
@@ -62,7 +62,7 @@ class TrackEditorController : Controller {
             }
 
             btnDelete.setOnClickListener {
-                playlistProvider.removeTrack(trackPosition)
+                PlaylistDataProvider.removeTrack(trackPosition)
 
                 it.showToast(R.string.msg_deleted)
                 router.popCurrentController()
