@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Playlist Data Manager 초기화
         initPlaylistDataManager()
 
         router = Conductor.attachRouter(this, binding.container, savedInstanceState)
@@ -41,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Playlist Data Manager를 만들고 Playlist 데이터를 만들어 초기화 한다.
+     */
     private fun initPlaylistDataManager() {
         playlistDataManager = PlaylistDataManager(this).apply {
             initPlaylist()
