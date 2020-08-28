@@ -3,11 +3,9 @@ package com.ellie.myplaylist.app
 import android.app.Application
 import android.content.Context
 import android.util.Log
-import androidx.annotation.WorkerThread
 import java.io.*
 
 class FileAccessor(private val context: Context, private val fileName: String) {
-    @WorkerThread
     fun readData(): String {
         try {
             context.openFileInput(fileName).use { inputStream ->
@@ -23,7 +21,6 @@ class FileAccessor(private val context: Context, private val fileName: String) {
         }
     }
 
-    @WorkerThread
     fun writeData(data: String) {
         // 해당 파일 있으면 열고, 없으면 생성한 뒤 data를 쓴다.
         OutputStreamWriter(context.openFileOutput(fileName, Application.MODE_PRIVATE)).use {
