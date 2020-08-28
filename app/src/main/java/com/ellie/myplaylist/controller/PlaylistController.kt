@@ -17,6 +17,7 @@ class PlaylistController : Controller() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
         viewBinding = ControllerPlaylistBinding.inflate(inflater, container, false)
         initPlayList()
+        setAddButtonClickListener()
 
         return viewBinding.root
     }
@@ -26,17 +27,19 @@ class PlaylistController : Controller() {
             layoutManager = LinearLayoutManager(context)
             adapter = TrackListAdapter().apply {
                 setPlaylist(GlobalApplication.playlistProvider.playlist)
-                setOnContainerClickListener { position -> startTrackController(position) }
-                setOnPlayButtonClickListener { position -> startPlayerController(position) }
+                setOnContainerClickListener { position ->
+                    router.pushController(RouterTransaction.with(TrackController(position)))
+                }
+                setOnPlayButtonClickListener { position ->
+                    router.pushController(RouterTransaction.with(PlayerController()))
+                }
             }
         }
     }
 
-    private fun startTrackController(position: Int) {
-        router.pushController(RouterTransaction.with(TrackController(position)))
-    }
-
-    private fun startPlayerController(position: Int) {
-        router.pushController(RouterTransaction.with(PlayerController()))
+    private fun setAddButtonClickListener() {
+        viewBinding.btnAdd.setOnClickListener {
+            router.pushController(RouterTransaction.with(TrackController()))
+        }
     }
 }
