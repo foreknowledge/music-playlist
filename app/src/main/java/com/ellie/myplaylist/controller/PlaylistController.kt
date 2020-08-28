@@ -28,7 +28,7 @@ class PlaylistController : Controller() {
             adapter = TrackListAdapter().apply {
                 setPlaylist(GlobalApplication.playlistProvider.playlist)
                 setOnContainerClickListener { position ->
-                    router.pushController(RouterTransaction.with(TrackController(position)))
+                    router.pushController(RouterTransaction.with(TrackEditorController(position)))
                 }
                 setOnPlayButtonClickListener { position ->
                     router.pushController(RouterTransaction.with(PlayerController()))
@@ -39,7 +39,7 @@ class PlaylistController : Controller() {
 
     private fun setAddButtonClickListener() {
         viewBinding.btnAdd.setOnClickListener {
-            router.pushController(RouterTransaction.with(TrackController()))
+            router.pushController(RouterTransaction.with(TrackEditorController()))
         }
     }
 }

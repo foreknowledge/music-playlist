@@ -9,10 +9,10 @@ import com.bluelinelabs.conductor.Controller
 import com.ellie.myplaylist.GlobalApplication
 import com.ellie.myplaylist.R
 import com.ellie.myplaylist.controller.tracklist.Track
-import com.ellie.myplaylist.databinding.ControllerTrackBinding
+import com.ellie.myplaylist.databinding.ControllerTrackEditorBinding
 
-class TrackController : Controller {
-    private lateinit var dataBinding: ControllerTrackBinding
+class TrackEditorController : Controller {
+    private lateinit var dataBinding: ControllerTrackEditorBinding
 
     private var currentTrack: Track? = null
 
@@ -30,7 +30,7 @@ class TrackController : Controller {
     })
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup, savedViewState: Bundle?): View {
-        dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_track, container, false)
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_track_editor, container, false)
 
         setViewsClickListener()
 
