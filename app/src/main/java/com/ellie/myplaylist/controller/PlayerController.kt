@@ -56,12 +56,8 @@ class PlayerController : Controller {
      * track, nextTrack 데이터를 View와 바인딩 한다.
      */
     private fun bindData() {
-        val playlist = PlaylistDataProvider.playlist
-        dataBinding.track = playlist[index]
-
-        if (index < playlist.size - 1) {
-            dataBinding.nextTrack = playlist[index + 1]
-        }
+        dataBinding.track = PlaylistDataProvider.getTrack(index)
+        dataBinding.nextTrack = PlaylistDataProvider.getNextTrack(index)
     }
 
     /**
