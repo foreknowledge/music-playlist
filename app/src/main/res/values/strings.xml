@@ -40,6 +40,10 @@
     <string name="hint_lyrics">가사를 입력해 주세요.</string>
     <string name="hint_introduction">자유롭게 곡에 대한 소개를 남겨 주세요.</string>
 
+    <string name="msg_saved">저장되었습니다.</string>
+    <string name="msg_deleted">삭제되었습니다.</string>
+    <string name="msg_necessary_field_missed">제목 / 아티스트 / 재생 시간은 필수 입력 사항입니다.</string>
+
     <string-array name="tracks">
         <item>All We Got (feat. Kanye West &amp; Chicago Children\'s Choir)|03:23</item>
         <item>No Problem (feat. Lil Wayne and 2 Chainz)|05:04</item>

@@ -21,17 +21,20 @@ class PlaylistProvider(context: Context) {
 
     fun addTrack(track: Track) {
         playlist.add(track)
+        saveToJsonFile()
     }
 
     fun removeTrack(position: Int) {
         playlist.removeAt(position)
+        saveToJsonFile()
     }
 
     fun updateTrack(position: Int, track: Track) {
         playlist[position] = track
+        saveToJsonFile()
     }
 
-    fun saveToJsonFile() {
+    private fun saveToJsonFile() {
         val jsonString = JsonConverter.listToJson(playlist, trackListType)
         fileAccessor.writeData(jsonString)
     }
