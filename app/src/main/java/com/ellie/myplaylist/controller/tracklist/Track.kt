@@ -21,7 +21,7 @@ data class Track(
     @field:Json(name = "lyrics")
     val lyrics: String? = null,
 
-    // 곡에 대한 소개
-    @field:Json(name = "introduction")
-    val introduction: String? = null
+    // 곡에 대한 설명
+    @field:Json(name = "description")
+    val description: String? = null
 )

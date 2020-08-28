@@ -117,7 +117,7 @@ class TrackEditorController : Controller {
             editArtist.getStr(),
             editTime.getStr(),
             editLyrics.getStr(),
-            editIntroduction.getStr()
+            editDescription.getStr()
         )
     }
 

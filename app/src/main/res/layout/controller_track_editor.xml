@@ -105,13 +105,13 @@
                 style="@style/defaultEditTextStyle"/>
 
             <TextView
-                android:id="@+id/textIntroduction"
+                android:id="@+id/textDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_margin_size"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
-                android:text="@string/str_introduction"
+                android:text="@string/str_description"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -119,17 +119,17 @@
                 app:layout_constraintTop_toBottomOf="@id/editLyrics"/>
 
             <EditText
-                android:id="@+id/editIntroduction"
-                android:hint="@string/hint_introduction"
+                android:id="@+id/editDescription"
+                android:hint="@string/hint_description"
                 android:minHeight="200dp"
                 android:maxLength="100000"
                 android:gravity="top"
-                android:text="@{track.introduction}"
+                android:text="@{track.description}"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 app:layout_constraintStart_toStartOf="@id/editTitle"
                 app:layout_constraintEnd_toEndOf="@id/editTitle"
-                app:layout_constraintTop_toBottomOf="@id/textIntroduction"
+                app:layout_constraintTop_toBottomOf="@id/textDescription"
                 style="@style/defaultEditTextStyle"/>
 
             <Button
@@ -142,7 +142,7 @@
                 android:background="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="@id/editTitle"
                 app:layout_constraintEnd_toEndOf="@id/editTitle"
-                app:layout_constraintTop_toBottomOf="@id/editIntroduction"/>
+                app:layout_constraintTop_toBottomOf="@id/editDescription"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
