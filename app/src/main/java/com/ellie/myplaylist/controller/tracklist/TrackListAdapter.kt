@@ -43,7 +43,7 @@ class TrackListAdapter : RecyclerView.Adapter<TrackListViewHolder>() {
             position,
             trackList[position],
             onContainerClick = { onContainerClickListener?.onItemClick(position) },
-            onPlayButtonClick = { onPlayButtonClickListener?.onItemClick(position)}
+            onPlayButtonClick = { onPlayButtonClickListener?.onItemClick(position) }
         )
     }
 
