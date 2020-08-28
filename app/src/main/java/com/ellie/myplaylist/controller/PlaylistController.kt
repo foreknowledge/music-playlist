@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.RouterTransaction
-import com.ellie.myplaylist.PlaylistDataProvider
+import com.ellie.myplaylist.util.PlaylistDataProvider
 import com.ellie.myplaylist.controller.tracklist.TrackListAdapter
 import com.ellie.myplaylist.databinding.ControllerPlaylistBinding
 

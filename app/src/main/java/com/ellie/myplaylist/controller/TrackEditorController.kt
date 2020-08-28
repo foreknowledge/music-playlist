@@ -9,8 +9,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import com.bluelinelabs.conductor.Controller
-import com.ellie.myplaylist.GlobalApplication
-import com.ellie.myplaylist.PlaylistDataProvider
+import com.ellie.myplaylist.util.PlaylistDataProvider
 import com.ellie.myplaylist.R
 import com.ellie.myplaylist.controller.tracklist.Track
 import com.ellie.myplaylist.databinding.ControllerTrackEditorBinding
