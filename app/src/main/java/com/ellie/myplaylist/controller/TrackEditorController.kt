@@ -25,9 +25,9 @@ class TrackEditorController : Controller {
 
     private lateinit var dataBinding: ControllerTrackEditorBinding
 
-    // 현재 track의 리스트 index
+    // 현재 track의 리스트 position
     // 새로 만드는 Track일 경우 -1로 설정
-    private var index: Int = -1
+    private var position: Int = -1
 
     //----------------------------------------------------------
     // Public interface.
@@ -36,8 +36,8 @@ class TrackEditorController : Controller {
     constructor() : super()
 
     constructor(args: Bundle) : super(args) {
-        // 현재 track의 index를 넘어온 args의 값으로 설정
-        index = args.getInt(KEY_POSITION)
+        // 현재 track의 position을 넘어온 args의 값으로 설정
+        position = args.getInt(KEY_POSITION)
     }
 
     // 넘어온 position을 args 생성자로 전달
@@ -49,8 +49,8 @@ class TrackEditorController : Controller {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.controller_track_editor, container, false)
 
         // 초기 화면 설정
-            // index에 해당하는 Track을 가져와서 View와 바인딩
-        dataBinding.track = PlaylistDataProvider.getTrack(index)
+            // position에 해당하는 Track을 가져와서 View와 바인딩
+        dataBinding.track = PlaylistDataProvider.getTrack(position)
         setViewsClickListener()
 
         return dataBinding.root
@@ -73,9 +73,9 @@ class TrackEditorController : Controller {
             btnSave.setOnClickListener {
                 if (checkValid()) {
                     // 누락된 값이 없는 경우
-                    if (index >= 0) {
+                    if (position >= 0) {
                         // 기존에 있는 Track인 경우 update.
-                        PlaylistDataProvider.updateTrack(index, makeCurrentTrack())
+                        PlaylistDataProvider.updateTrack(position, makeCurrentTrack())
                     } else {
                         // 새로 만든 Track인 경우 add.
                         PlaylistDataProvider.addTrack(makeCurrentTrack())
@@ -91,8 +91,8 @@ class TrackEditorController : Controller {
             }
 
             btnDelete.setOnClickListener {
-                // 현재 index에 해당하는 Track 삭제
-                PlaylistDataProvider.removeTrack(index)
+                // 현재 position에 해당하는 Track 삭제
+                PlaylistDataProvider.removeTrack(position)
 
                 // Toast 메시지 보여주고 Controller 종료
                 it.showToast(R.string.msg_deleted)

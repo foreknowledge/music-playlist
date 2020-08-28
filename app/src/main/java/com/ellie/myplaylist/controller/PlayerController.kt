@@ -21,16 +21,16 @@ class PlayerController : Controller {
 
     private lateinit var dataBinding: ControllerPlayerBinding
 
-    // 현재 track의 리스트 index
-    private var index: Int
+    // 현재 track의 리스트 position
+    private var position: Int
 
     //----------------------------------------------------------
     // Public interface.
     //
 
     constructor(args: Bundle) : super(args) {
-        // track index를 넘어온 args의 값으로 설정
-        index = args.getInt(KEY_POSITION)
+        // track position을 넘어온 args의 값으로 설정
+        position = args.getInt(KEY_POSITION)
     }
 
     // 넘어온 position을 args 생성자로 전달
@@ -56,8 +56,8 @@ class PlayerController : Controller {
      * track, nextTrack 데이터를 View와 바인딩 한다.
      */
     private fun bindData() {
-        dataBinding.track = PlaylistDataProvider.getTrack(index)
-        dataBinding.nextTrack = PlaylistDataProvider.getNextTrack(index)
+        dataBinding.track = PlaylistDataProvider.getTrack(position)
+        dataBinding.nextTrack = PlaylistDataProvider.getNextTrack(position)
     }
 
     /**

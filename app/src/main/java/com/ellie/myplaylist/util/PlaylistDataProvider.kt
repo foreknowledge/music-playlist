@@ -21,24 +21,24 @@ object PlaylistDataProvider {
     val playlist = playlistDataManager.playlist
 
     /**
-     * track list 중에서 index에 해당하는 track을 반환한다.
-     * 없는 index가 넘어오면 null을 반환한다.
+     * track list 중에서 position에 해당하는 track을 반환한다.
+     * 없는 position가 넘어오면 null을 반환한다.
      */
-    fun getTrack(index: Int): Track? {
-        return if (index >= 0 && index < playlist.size) {
-            playlist[index]
+    fun getTrack(position: Int): Track? {
+        return if (position >= 0 && position < playlist.size) {
+            playlist[position]
         } else {
             null
         }
     }
 
     /**
-     * track list 중에서 index에 해당하는 track을 반환한다.
+     * track list 중에서 position에 해당하는 track을 반환한다.
      * 다음 Track이 없으면 null을 반환한다.
      */
-    fun getNextTrack(index: Int): Track? {
-        return if (index >= 0 && index < playlist.size - 1) {
-            playlist[index + 1]
+    fun getNextTrack(position: Int): Track? {
+        return if (position >= 0 && position < playlist.size - 1) {
+            playlist[position + 1]
         } else {
             null
         }
