@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import com.bluelinelabs.conductor.Controller
 import com.ellie.myplaylist.GlobalApplication
@@ -53,20 +54,24 @@ class TrackEditorController : Controller {
                         playlistProvider.addTrack(makeCurrentTrack())
                     }
 
-                    Toast.makeText(it.context, it.context.getString(R.string.msg_saved), Toast.LENGTH_SHORT).show()
+                    it.showToast(R.string.msg_saved)
                     router.popCurrentController()
                 } else {
-                    Toast.makeText(it.context, it.context.getString(R.string.msg_necessary_field_missed), Toast.LENGTH_LONG).show()
+                    it.showToast(R.string.msg_necessary_field_missed, Toast.LENGTH_LONG)
                 }
             }
 
             btnDelete.setOnClickListener {
                 playlistProvider.removeTrack(trackPosition)
 
-                Toast.makeText(it.context, it.context.getString(R.string.msg_deleted), Toast.LENGTH_SHORT).show()
+                it.showToast(R.string.msg_deleted)
                 router.popCurrentController()
             }
         }
+    }
+
+    private fun View.showToast(@StringRes resId: Int, length: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(context, context.getString(resId), length).show()
     }
 
     private fun checkValid(): Boolean = with(dataBinding) {
